@@ -17,7 +17,7 @@ if(!window.js_bridge){
                         s += '"' + new Number(a[item]).toString() + '"';
                         break;
                     case "object":
-
+                        s += "null"
                         break;
                     default:
                         s += a[item];
