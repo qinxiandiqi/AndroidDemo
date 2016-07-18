@@ -18,34 +18,26 @@ package com.qinxiandiqi.androiddemo.util;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
-import android.text.TextUtils;
 import android.util.Log;
 
 /**
- * Created by Jianan on 2016/07/08.
+ * Created by Jianan on 2016/07/18.
  */
-public class LogUtils {
+public class SystemUtils {
 
-    private static final String TAG = "Jianan";
-
-    public static void logProcessName(Context ctx){
-        String processName = SystemUtils.getProcessName(ctx);
-        if(TextUtils.isEmpty(processName)){
-            logException("Can't find out the process");
-        }else {
-            logStr("The Current process name is " + processName);
+    /**
+     * Get the current process's name
+     * @param context the Context
+     * @return the name of process
+     */
+    public static String getProcessName(Context context){
+        int pid = Process.myPid();
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        for(ActivityManager.RunningAppProcessInfo info : activityManager.getRunningAppProcesses()){
+            if(info.pid == pid){
+                return info.processName;
+            }
         }
-    }
-
-    public static void logStr(String str){
-        Log.i(TAG, str);
-    }
-
-    public static void logException(String error){
-        Log.e(TAG, error);
-    }
-
-    public static void logException(String error, Throwable ex){
-        Log.e(TAG, error, ex);
+        return null;
     }
 }
