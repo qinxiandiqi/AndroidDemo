@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Test</title>
+    <script src="js/js_bridge.js"></script>
+    <script>
+
+        function test(){
+            window.js_bridge.onEvent({
+                action:"Jianan",
+                money:12.00,
+                integer:1,
+                object:new Object,
+                list:["sdfas", "sdfasd", "sdfa"],
+                success:function(){
+                    document.getElementById("demo").innerHTML="My First JavaScript Function";
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+<br>
+<br>
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="test()">Try it</button>
+</body>
+</html>
