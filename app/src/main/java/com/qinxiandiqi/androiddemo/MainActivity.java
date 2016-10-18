@@ -5,14 +5,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.qinxiandiqi.androiddemo.util.LogUtils;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LogUtils.logStr("onCreate start...");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -26,6 +30,49 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        LogUtils.logStr("onCreate end...");
+    }
+
+    @Override
+    protected void onStart() {
+        LogUtils.logStr("onStart start...");
+        super.onStart();
+        LogUtils.logStr("onStart end...");
+    }
+
+    @Override
+    protected void onRestart() {
+        LogUtils.logStr("onRestart start...");
+        super.onRestart();
+        LogUtils.logStr("onRestart end...");
+    }
+
+    @Override
+    protected void onResume() {
+        LogUtils.logStr("onResume start...");
+        super.onResume();
+        LogUtils.logStr("onResume end...");
+    }
+
+    @Override
+    protected void onPause() {
+        LogUtils.logStr("onPause start...");
+        super.onPause();
+        LogUtils.logStr("onPause end...");
+    }
+
+    @Override
+    protected void onStop() {
+        LogUtils.logStr("onStop start...");
+        super.onStop();
+        LogUtils.logStr("onStop end...");
+    }
+
+    @Override
+    protected void onDestroy() {
+        LogUtils.logStr("onDestroy start...");
+        super.onDestroy();
+        LogUtils.logStr("onDestroy end...");
     }
 
     @Override
